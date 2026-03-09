@@ -5,3 +5,10 @@
 body {
     background-color: #F8FAFC;
 }
+
+.open {
+    border-top: 4px solid #00A96E;
+}
+.closed {
+    border-top: 4px solid #A855F7;
+}
