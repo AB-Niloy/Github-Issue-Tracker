@@ -33,7 +33,7 @@ const displayIssues = (issues) => {
         card.innerHTML = `
                <div class=" bg-white rounded-lg shadow-md p-5 space-y-5 h-full flex flex-col">
                     <div class="flex justify-between">
-                        <img src="../assets/${issue.status}.png" alt="${issue.status}">
+                        <img src="./assets/${issue.status}.png" alt="${issue.status}">
                         <div class="badge badge-soft badge-secondary ${issue.priority == 'high' ? 'badge-error text-[#EF4444] bg-[#FEECEC]' : issue.priority == 'medium' ? 'badge-warning text-[#F59E0B] bg-[#FFF6D1]' : 'badge-neutral text-[#9CA3AF] bg-[#EEEFF2]'}">${issue.priority.toUpperCase()}</div>
                     </div>
                     <div>
