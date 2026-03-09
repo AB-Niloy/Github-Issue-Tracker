@@ -1,3 +1,4 @@
+// Login 
 const btnLogin = document.getElementById("btn-login");
 
 btnLogin.addEventListener("click", () => {
@@ -8,8 +9,6 @@ btnLogin.addEventListener("click", () => {
     window.location.href = "./dashboard.html";
     }
     else {
-        alert("Invalid username or password. Please try again.");
+        alert("Invalid username or password");
     }
 });
-
-console.log('niloy');
