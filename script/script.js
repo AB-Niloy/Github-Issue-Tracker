@@ -1,3 +1,4 @@
+
 // Load & display Issues
 const loadIssues = () => {
     const url ="https://phi-lab-server.vercel.app/api/v1/lab/issues"
@@ -54,3 +55,63 @@ const displayIssues = (issues) => {
     }
 }
 loadIssues();
+
+
+const disableActive = (btn) => {
+    btn.classList.remove("btn-primary");
+}
+const enableActive = (btn) => {
+    btn.classList.add("btn-primary")
+}
+// Toggle Buttons
+const showTab = (id) => {
+    const allBtns = document.querySelectorAll(".tab-btn");
+    for(let btn of allBtns) {
+        disableActive(btn);
+    }
+    const active = document.getElementById(id);
+    enableActive(active);
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+    showTab("allTab");
+});
+
+const openTab = document.getElementById("openTab");
+
+openTab.addEventListener("click", function(){
+    // startLoading();
+    const loadOpenIssues = () => {
+        fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+        .then(re => re.json())
+        .then((data) => {
+            const allIssues = data.data;
+            const openIssues = allIssues.filter(iss => iss.status === "open");
+
+            displayIssues(openIssues);
+        })};
+        loadOpenIssues();
+        
+});
+
+const allTab = document.getElementById("allTab");
+allTab.addEventListener("click", function(){
+    // startLoading();
+    loadIssues();
+    // calculateCount();
+});
+
+const closedTab = document.getElementById("closedTab");
+closedTab.addEventListener("click", function(){
+    // startLoading();
+    const loadClosedIssues = () => {
+        fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+        .then(re => re.json())
+        .then((data) => {
+            const allIssues = data.data;
+            const closedIssues = allIssues.filter(iss => iss.status === "closed");
+
+            displayIssues(closedIssues);
+        })};
+        loadClosedIssues();
+});
