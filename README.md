@@ -1,122 +1,105 @@
-1️⃣ Difference between var, let, and const
+# 📘 JavaScript Basic Concepts
 
-In JavaScript, var, let, and const are used to declare variables, but they behave differently.
+## 1️⃣ Difference between `var`, `let`, and `const`
 
-var
+In JavaScript, `var`, `let`, and `const` are used to declare variables, but they behave differently.
 
-var is the older way of declaring variables.
+### `var`
 
-It is function scoped, meaning it works inside the whole function.
+* `var` is function scoped.
+* Can be redeclared and updated.
 
-It can be redeclared and updated.
-
-Because of these behaviors, it can sometimes cause unexpected bugs.
-
-Example:
-
+```javascript
 var name = "Arnob";
 var name = "Niloy"; // redeclared
-let
+```
 
-let was introduced in ES6.
+### `let`
 
-It is block scoped (works only inside { }).
+* Block scoped.
+* Can be updated but not redeclared.
 
-It can be updated but cannot be redeclared in the same scope.
-
-Example:
-
+```javascript
 let age = 20;
 age = 21; // allowed
-const
+```
 
-const is also block scoped.
+### `const`
 
-It cannot be updated or redeclared.
+* Block scoped.
+* Cannot be updated or redeclared.
 
-A value must be assigned when it is declared.
-
-Example:
-
+```javascript
 const country = "Bangladesh";
-2️⃣ What is the Spread Operator (...)?
+```
 
-The spread operator (...) is used to expand elements of an array or object.
+---
 
-It helps to copy or combine data easily.
+## 2️⃣ Spread Operator (`...`)
 
-Example with arrays:
+Used to expand elements of an array or object.
 
+```javascript
 const arr1 = [1, 2];
 const arr2 = [3, 4];
-
-const newArray = [...arr1, ...arr2];
-// [1, 2, 3, 4]
-
-Example with objects:
+const newArray = [...arr1, ...arr2]; // [1, 2, 3, 4]
 
 const user = { name: "Arnob" };
 const info = { age: 20 };
-
 const profile = { ...user, ...info };
-3️⃣ Difference between map(), filter(), and forEach()
+```
 
-These methods are used to work with arrays.
+---
 
-map()
+## 3️⃣ Difference between `map()`, `filter()`, and `forEach()`
 
-Creates a new array.
+### `map()`
 
-Transforms each element.
+* Returns a new array.
+* Transforms each element.
 
+```javascript
 const numbers = [1, 2, 3];
+const doubled = numbers.map(num => num * 2); // [2, 4, 6]
+```
 
-const doubled = numbers.map(num => num * 2);
-// [2, 4, 6]
-filter()
+### `filter()`
 
-Creates a new array with elements that match a condition.
+* Returns a new array with elements that match a condition.
 
-const numbers = [1, 2, 3, 4];
+```javascript
+const even = numbers.filter(num => num % 2 === 0); // [2]
+```
 
-const even = numbers.filter(num => num % 2 === 0);
-// [2, 4]
-forEach()
+### `forEach()`
 
-Executes a function for each element.
+* Executes a function for each element.
+* Does not return a new array.
 
-Does not return a new array.
+```javascript
+numbers.forEach(num => console.log(num));
+```
 
-const numbers = [1, 2, 3];
+---
 
-numbers.forEach(num => {
-  console.log(num);
-});
-4️⃣ What is an Arrow Function?
+## 4️⃣ Arrow Function
 
-An arrow function is a shorter way to write functions in JavaScript.
-It was introduced in ES6 and makes the code cleaner and easier to read.
+Shorter way to write functions.
 
-Example:
-
-Normal function:
-
-function add(a, b) {
-  return a + b;
-}
-
-Arrow function:
-
+```javascript
 const add = (a, b) => a + b;
-5️⃣ What are Template Literals?
+```
 
-Template literals are used to create strings easily and insert variables inside them.
+---
 
-They use backticks ( ) instead of quotes.
+## 5️⃣ Template Literals
 
-Example:
+Used to create strings with variables inside using backticks.
 
+```javascript
 const name = "Arnob";
 const age = 20;
-
 const message = `My name is ${name} and I am ${age} years old.`;
+```
+
+---
