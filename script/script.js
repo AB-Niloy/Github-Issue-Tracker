@@ -55,7 +55,7 @@ const displayIssues = (issues) => {
             card.classList.add("closed")
         }
         card.innerHTML = `
-               <div class=" bg-white rounded-lg shadow-md p-5 space-y-5 h-full flex flex-col">
+               <div class=" bg-white rounded-lg shadow-md p-5 space-y-5 h-full flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer">
                     <div class="flex justify-between">
                         <img src="./assets/${issue.status}.png" alt="${issue.status}">
                         <div class="badge badge-soft badge-secondary ${issue.priority == 'high' ? 'badge-error text-[#EF4444] bg-[#FEECEC]' : issue.priority == 'medium' ? 'badge-warning text-[#F59E0B] bg-[#FFF6D1]' : 'badge-neutral text-[#9CA3AF] bg-[#EEEFF2]'}">${issue.priority.toUpperCase()}</div>
@@ -194,3 +194,22 @@ displayModal = (data) => {
     `
     modal.showModal();
 }
+
+// Search
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+
+searchBtn.addEventListener("click", function(){
+    startLoading();
+    const allBtns = document.querySelectorAll(".tab-btn");
+    for(btn of allBtns) {
+        disableActive(btn);
+    }
+    const query = searchInput.value.trim();
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${query}`;
+
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayIssues(data.data));
+
+})
